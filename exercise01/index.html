@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solve the equation</title>
+
+</head>
+<body>
+<table>
+    <tr>
+        <td><input type="number" id="aa" placeholder="a"></td>
+        <td><input type="number" id="bb" placeholder="b"></td>
+        <td><input type="number" id="cc" placeholder="kiem tra"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button type="button" onclick="giaiBT()">giai</button>
+        </td>
+
+        <td>
+            <button type="button" onclick="kiemTraSo()">kiem tra</button>
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2">
+            <div id="messageDivGiaiBT"></div>
+        </td>
+        <td>
+            <div id="messageDivKiemTra"></div>
+        </td>
+    </tr>
+</table>
+<script>
+    let a, b, c, x;
+
+    function giaiBT() {
+        a = document.getElementById('aa').value;
+        b = document.getElementById('bb').value;
+        a = Number.parseFloat(a);
+        b = Number.parseFloat(b);
+        if (a === 0) {
+            if (b === 0) {
+                document.getElementById("messageDivGiaiBT").innerHTML = "vo so nghiem";
+            } else {
+                document.getElementById("messageDivGiaiBT").innerHTML = "vo nghiem";
+            }
+        } else {
+            x = -b / a;
+            document.getElementById("messageDivGiaiBT").innerHTML = "x= " + x;
+        }
+    }
+
+    function kiemTraSo() {
+        c = document.getElementById('cc').value;
+        c = Number.parseInt(c);
+        let test = document.getElementById("messageDivKiemTra");
+        if (c <= 9999) {
+            if (c > 0) {
+                if (c <= 9) {
+                    test.innerHTML = c + ' la so duong co 1 chu so';
+                } else if (c <= 99) {
+                    test.innerHTML = c + ' la so duong co 2 chu so';
+                } else if (c <= 999) {
+                    test.innerHTML = c + ' la so duong co 3 chu so';
+                } else {
+                    test.innerHTML = c + ' la so duong co 4 chu so';
+                }
+            } else {
+                test.innerHTML = c + ' la so am';
+            }
+        } else {
+            test.innerHTML = "It's too big!";
+        }
+    }
+
+    /*function solveTheEquation() {
+        let a=document.getElementById(a.value);
+        let b=document.getElementById(b.value);
+        a=parseFloat(a);
+        b=parseFloat(b);
+        if (a==0)
+            if(b==0) alert("We have infinite x!");
+                    document.getElementById('result')
+            else
+                alert("x does NOT exist")
+        else
+            alert("x= "+ -b/a);
+    }
+    function displayResult() {
+        solveTheEquation();
+    document.getElementById('result').innerHTML=solveTheEquation()
+    }*/
+</script>
+</body>
+</html>

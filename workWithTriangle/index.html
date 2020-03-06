@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WORK WITH TRIANGLE</title>
+    <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        font-family: 'Spartan', serif;
+        font-size: 25px;
+    }
+
+</style>
+<body>
+<fieldset>
+    <legend>WORK WITH TRIANGLE</legend>
+    <form>
+        <input type="number" id="edge01" placeholder="1st edge in centimetre">
+        <input type="number" id="edge02" placeholder="2nd edge in centimetre">
+        <input type="number" id="edge03" placeholder="3rd edge in centimetre">
+        <button type="button" onclick="main()">Is this a Triangle?</button>
+        <button type="reset">Reset</button>
+    </form>
+    <div id="checkIfTriangle"></div>
+    <div id="trianglePerimeter"></div>
+    <div id="triangleSurface"></div>
+    <div id="rightTriangle"></div>
+    <div id="isoscelesTriangle"></div>
+    <div id="equilateral"></div>
+</fieldset>
+<script>
+    let a, b, c, P, S;
+    function inputValue() {
+        a = document.getElementById('edge01').value;
+        a = parseFloat(a);
+        console.log();
+        b = document.getElementById('edge02').value;
+        b = parseFloat(b);
+        console.log();
+        c = document.getElementById('edge03').value;
+        c = parseFloat(c);
+    }
+    function triangleExistence() {
+        if ((a + b > c) && (a + c > b) && (b + c > a)) {
+            document.getElementById('checkIfTriangle').innerHTML = "This is a triangle!";
+        } else {
+            document.getElementById('checkIfTriangle').innerHTML = "This is NOT a triangle!";
+        }
+    }
+
+    function getTriangleParameter() {
+        if ((a + b > c) && (a + c > b) && (b + c > a)) {
+            P = a + b + c;
+            document.getElementById('trianglePerimeter').innerHTML = "This triangle is " + P + "cm in Perimeter";
+        } else {
+            document.getElementById('trianglePerimeter').innerHTML = "Perimeter not available.";
+        }
+    }
+
+    function getTriangleSurface() {
+        if ((a + b > c) && (a + c > b) && (b + c > a)) {
+            S = (Math.sqrt((a + b + c) * (a + b - c) * (b + c - a) * (c + a - b))) / 4;
+            document.getElementById('triangleSurface').innerHTML = "This triangle's Surface is " + S + 'cm&sup2;';
+        } else {
+            document.getElementById('triangleSurface').innerHTML = 'Surfaces is not available.';
+        }
+    }
+
+    function checkIfRightTriangle() {
+        if ((a * a) + (b * b) === (c * c) || (a * a) + (c * c) === (b * b) || (b * b) + (c * c) === (a * a)) {
+            document.getElementById('rightTriangle').innerHTML = "This is a Right Triangle!";
+        } else {
+            document.getElementById('rightTriangle').innerHTML = "This is NOT a Right Triangle!";
+        }
+    }
+
+    function checkIfIsoscelesTriangle() {
+        if (a === b || a === c || b === c) {
+            document.getElementById('isoscelesTriangle').innerHTML = 'This is an Isosceles Triangle!';
+        } else {
+            document.getElementById('isoscelesTriangle').innerHTML = 'This is NOT an Isosceles Triangle!';
+        }
+    }
+
+    function checkIfEquilateral() {
+        if (a === b && a === c && b === c) {
+            document.getElementById('equilateral').innerHTML = 'This is an Equilateral Triangle!';
+        } else {
+            document.getElementById('equilateral').innerHTML = 'This is NOT an Equilateral Triangle!';
+        }
+    }
+
+    function main() {
+        inputValue();
+        triangleExistence();
+        getTriangleParameter();
+        getTriangleSurface();
+        checkIfEquilateral();
+        checkIfIsoscelesTriangle();
+        checkIfRightTriangle();
+    }
+</script>
+</body>
+</html>
