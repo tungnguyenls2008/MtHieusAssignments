@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Trâu đứng ăn năm
+Trâu nằm ăn ba
+Lụ khụ trâu già
+Ba con một bó
+Trăm con ăn cỏ
+Trăm bó no nê.
+Hỏi có bao nhiêu trâu đứng , trâu nằm , trâu già ?-->
+<script>
+    let trauDung, trauNam, trauGia;
+    for (trauDung = 0; trauDung <= 20; trauDung++) {
+        for (trauNam = 0; trauNam <= 33; trauNam++) {
+            trauGia = 100 - trauNam - trauDung;
+            let trau = trauGia + trauNam + trauDung;
+            let co = 5 * trauDung + 3 * trauNam + trauGia / 3;
+            if (trau === 100 && co === 100) {
+                console.log("trau dung: " + trauDung);
+                console.log("trau nam: " + trauNam);
+                console.log("trau gia: " + trauGia);
+            }
+        }
+    }
+</script>
+</body>
+</html>

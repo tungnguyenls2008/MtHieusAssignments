@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TOAN CO</title>
+</head>
+<body>
+<!--Quýt ngon mỗi quả chia ba
+Cam ngon mỗi quả chia ra làm mười
+Mỗi người một miếng trăm người
+có mười bảy quả ko nhiều đủ chia
+tính số cam quýt-->
+<script>
+    let cam, quyt;
+    for (cam=0;cam<=17;cam++)
+        for(quyt=0;quyt<=17;quyt++)
+            if((quyt*3)+(cam*10)===100&& (quyt+cam===17)){
+                console.log("so cam: "+cam);
+                console.log("so quyt: "+quyt);
+            }
+</script>
+</body>
+</html>
