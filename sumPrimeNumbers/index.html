@@ -2,9 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>SUM THE PRIME NUMBER!</title>
 </head>
 <body>
-$END$
+<input type="number" id="first" placeholder="1st num">
+<input type="number" id="second" placeholder="2nd num">
+<div id="result"></div>
+<div id="summary"></div>
+<button type="button" onclick="showPrimesList()">SUM THEM UP!</button>
+<script>
+
+    function checkPrime(num) {
+        for (let i = 2; i < num; i++) {
+            if (num % i === 0)
+                return false;
+        }
+        return true;
+    }
+
+    function showPrimesList() {
+        let a = +document.getElementById('first').value;
+        let b = +document.getElementById('second').value;
+        let sum=0;
+        document.getElementById('result').innerHTML = '';
+        for (let i = a; i <= b; i++) {
+            if (i > 1) {
+                if (checkPrime(i)) {
+                    document.getElementById('result').innerHTML += "result is: " + i + '<br>';
+                    sum+=i;
+                }
+            }
+        }
+        document.getElementById('summary').innerHTML='the summary is: '+sum;
+    }
+
+
+</script>
 </body>
 </html>
